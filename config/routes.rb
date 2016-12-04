@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "asset_types#index"
   # Routes for the Historical_net_worth resource:
   # CREATE
   get "/historical_net_worths/new", :controller => "historical_net_worths", :action => "new"
