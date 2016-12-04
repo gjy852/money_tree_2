@@ -3,15 +3,11 @@ class NetWorth < ApplicationRecord
 
   belongs_to :user
 
-  belongs_to :liabilities_total,
-             :class_name => "Liability"
-
-  has_many   :historical_net_worths,
-             :foreign_key => "net_worth_total_id",
+  has_many   :liabilities,
              :dependent => :destroy
 
-  belongs_to :asset_total,
-             :class_name => "Asset"
+  has_many   :assets,
+             :dependent => :destroy
 
   # Indirect associations
 

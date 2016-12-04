@@ -24,7 +24,7 @@
           Liabilities type
         </label>
 
-        <%= select_tag(:liabilities_type_id, options_from_collection_for_select(LiabilityType.all, :id, :credit_cards, @liability.liabilities_type_id), :class => "form-control") %>
+        <%= select_tag(:liabilities_type_id, options_from_collection_for_select(LiabilityType.all, :id, :created_at, @liability.liabilities_type_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for user_id -->
@@ -33,7 +33,7 @@
           User
         </label>
 
-        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :age, @liability.user_id), :class => "form-control") %>
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @liability.user_id %>">
       </div>
 
       <!-- Label and input for liabilities_value -->
@@ -43,6 +43,15 @@
         </label>
 
         <input type="text" id="liabilities_value" name="liabilities_value" placeholder="Liabilities value" class="form-control" value="<%= @liability.liabilities_value %>">
+      </div>
+
+      <!-- Label and input for net_worth_id -->
+      <div class="form-group">
+        <label for="net_worth_id" class="control-label">
+          Net worth
+        </label>
+
+        <%= select_tag(:net_worth_id, options_from_collection_for_select(NetWorth.all, :id, :asset_total_id, @liability.net_worth_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">

@@ -24,7 +24,7 @@
           Asset type
         </label>
 
-        <%= select_tag(:asset_type_id, options_from_collection_for_select(AssetType.all, :id, :checking, @asset.asset_type_id), :class => "form-control") %>
+        <%= select_tag(:asset_type_id, options_from_collection_for_select(AssetType.all, :id, :created_at, @asset.asset_type_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for user_id -->
@@ -43,6 +43,15 @@
         </label>
 
         <input type="text" id="asset_value" name="asset_value" placeholder="Asset value" class="form-control" value="<%= @asset.asset_value %>">
+      </div>
+
+      <!-- Label and input for net_worth_id -->
+      <div class="form-group">
+        <label for="net_worth_id" class="control-label">
+          Net worth
+        </label>
+
+        <%= select_tag(:net_worth_id, options_from_collection_for_select(NetWorth.all, :id, :asset_total_id, @asset.net_worth_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">

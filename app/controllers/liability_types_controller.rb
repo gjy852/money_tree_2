@@ -21,12 +21,7 @@ class LiabilityTypesController < ApplicationController
   def create
     @liability_type = LiabilityType.new
 
-    @liability_type.credit_cards = params[:credit_cards]
-    @liability_type.other_current_liabilities = params[:other_current_liabilities]
-    @liability_type.mortgages = params[:mortgages]
-    @liability_type.student_loans = params[:student_loans]
-    @liability_type.automobile_loans = params[:automobile_loans]
-    @liability_type.other_long_term_liabilities = params[:other_long_term_liabilities]
+    @liability_type.name = params[:name]
 
     save_status = @liability_type.save
 
@@ -53,12 +48,7 @@ class LiabilityTypesController < ApplicationController
   def update
     @liability_type = LiabilityType.find(params[:id])
 
-    @liability_type.credit_cards = params[:credit_cards]
-    @liability_type.other_current_liabilities = params[:other_current_liabilities]
-    @liability_type.mortgages = params[:mortgages]
-    @liability_type.student_loans = params[:student_loans]
-    @liability_type.automobile_loans = params[:automobile_loans]
-    @liability_type.other_long_term_liabilities = params[:other_long_term_liabilities]
+    @liability_type.name = params[:name]
 
     save_status = @liability_type.save
 

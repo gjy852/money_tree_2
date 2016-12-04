@@ -9,22 +9,25 @@
       <dd>
         <% if @liability.liabilities_type.present? %>
           <a href="/liability_types/<%= @liability.liabilities_type_id %>">
-            <%= @liability.liabilities_type.credit_cards %>
+            <%= @liability.liabilities_type.created_at %>
           </a>
         <% end %>
       </dd>
 
       <dt>User</dt>
-      <dd>
-        <% if @liability.user.present? %>
-          <a href="/users/<%= @liability.user_id %>">
-            <%= @liability.user.age %>
-          </a>
-        <% end %>
-      </dd>
+      <dd><%= @liability.user_id %></dd>
 
       <dt>Liabilities value</dt>
       <dd><%= @liability.liabilities_value %></dd>
+
+      <dt>Net worth</dt>
+      <dd>
+        <% if @liability.net_worth.present? %>
+          <a href="/net_worths/<%= @liability.net_worth_id %>">
+            <%= @liability.net_worth.asset_total_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

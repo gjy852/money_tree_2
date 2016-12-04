@@ -57,22 +57,13 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for asset_total_id -->
+      <!-- Label and input for liabilities_id -->
       <div class="form-group">
-        <label for="asset_total_id" class="control-label">
-          Asset total
+        <label for="liabilities_id" class="control-label">
+          Liabilities
         </label>
 
-        <%= select_tag(:asset_total_id, options_from_collection_for_select(Asset.all, :id, :asset_type_id), :class => "form-control") %>
-      </div>
-
-      <!-- Label and input for liabilities_total_id -->
-      <div class="form-group">
-        <label for="liabilities_total_id" class="control-label">
-          Liabilities total
-        </label>
-
-        <%= select_tag(:liabilities_total_id, options_from_collection_for_select(Liability.all, :id, :liabilities_type_id), :class => "form-control") %>
+        <input type="text" id="liabilities_id" name="liabilities_id" placeholder="Liabilities" class="form-control" value="">
       </div>
 
       <!-- Label and input for net_worth_total_id -->
@@ -84,83 +75,20 @@
         <input type="text" id="net_worth_total_id" name="net_worth_total_id" placeholder="Net worth total" class="form-control" value="">
       </div>
 
-      <!-- Label and input for user_id -->
-      <input type="hidden" name="user_id" value="<%= @user.id %>">
-
-      <!-- Label and input for date -->
+      <!-- Label and input for asset_total_id -->
       <div class="form-group">
-        <label for="date" class="control-label">
-          Date
+        <label for="asset_total_id" class="control-label">
+          Asset total
         </label>
 
-        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="">
+        <input type="text" id="asset_total_id" name="asset_total_id" placeholder="Asset total" class="form-control" value="">
       </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= @user.id %>">
 
       <button class="btn btn-block btn-success">
         Create Net Worth
-      </button>
-    </form>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<!-- A User has many liabilities -->
-
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Liabilities
-      </li>
-
-      <% @user.liabilities.each do |liability| %>
-        <li class="list-group-item">
-          <a href="/liabilities/<%= liability.id %>">
-            <%= liability.liabilities_type_id %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/liabilities/<%= liability.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <a href="/liabilities/<%= liability.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_liability/<%= liability.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
-        </li>
-      <% end %>
-
-      <li class="list-group-item">
-        <form action="/create_liability" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-      <!-- Label and input for liabilities_type_id -->
-      <div class="form-group">
-        <label for="liabilities_type_id" class="control-label">
-          Liabilities type
-        </label>
-
-        <%= select_tag(:liabilities_type_id, options_from_collection_for_select(LiabilityType.all, :id, :credit_cards), :class => "form-control") %>
-      </div>
-
-      <!-- Label and input for user_id -->
-      <input type="hidden" name="user_id" value="<%= @user.id %>">
-
-      <!-- Label and input for liabilities_value -->
-      <div class="form-group">
-        <label for="liabilities_value" class="control-label">
-          Liabilities value
-        </label>
-
-        <input type="text" id="liabilities_value" name="liabilities_value" placeholder="Liabilities value" class="form-control" value="">
-      </div>
-
-      <button class="btn btn-block btn-success">
-        Create Liability
       </button>
     </form>
       </li>

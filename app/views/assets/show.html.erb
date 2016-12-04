@@ -9,7 +9,7 @@
       <dd>
         <% if @asset.asset_type.present? %>
           <a href="/asset_types/<%= @asset.asset_type_id %>">
-            <%= @asset.asset_type.checking %>
+            <%= @asset.asset_type.created_at %>
           </a>
         <% end %>
       </dd>
@@ -19,6 +19,15 @@
 
       <dt>Asset value</dt>
       <dd><%= @asset.asset_value %></dd>
+
+      <dt>Net worth</dt>
+      <dd>
+        <% if @asset.net_worth.present? %>
+          <a href="/net_worths/<%= @asset.net_worth_id %>">
+            <%= @asset.net_worth.asset_total_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

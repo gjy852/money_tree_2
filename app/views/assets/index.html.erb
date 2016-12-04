@@ -73,13 +73,53 @@
       </script>
 
         <div class="form-group">
-  <%= f.label :checking, "AssetType Checking" %>
+          <%= f.label :created_at, "AssetType Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='asset_typegteqcreated_atPicker'>
+                  <%= f.text_field :asset_type_created_at_gteq, :class => "form-control", :placeholder => "AssetType Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='asset_typelteqcreated_atPicker'>
+                  <%= f.text_field :asset_type_created_at_lteq, :class => "form-control", :placeholder => "AssetType Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#asset_typegteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#asset_typelteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#asset_typegteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#asset_typelteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#asset_typelteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#asset_typegteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+  <%= f.label :asset_total_id, "NetWorth Asset total" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
-      <%= f.text_field :asset_type_checking_gteq, :class => "form-control", :placeholder => "AssetType Checking greater than or equal to" %>
+      <%= f.text_field :net_worth_asset_total_id_gteq, :class => "form-control", :placeholder => "NetWorth Asset total greater than or equal to" %>
     </div>
     <div class='col-md-6'>
-      <%= f.text_field :asset_type_checking_lteq, :class => "form-control", :placeholder => "AssetType Checking less than or equal to" %>
+      <%= f.text_field :net_worth_asset_total_id_lteq, :class => "form-control", :placeholder => "NetWorth Asset total less than or equal to" %>
     </div>
   </div>
 </div>
@@ -101,6 +141,7 @@
         <th>Asset type</th>
         <th>User</th>
         <th>Asset value</th>
+        <th>Net worth</th>
         <th>Actions</th>
       </tr>
 
@@ -109,12 +150,19 @@
         <td>
           <% if asset.asset_type.present? %>
             <a href="/asset_types/<%= asset.asset_type.id %>">
-              <%= asset.asset_type.checking %>
+              <%= asset.asset_type.created_at %>
             </a>
           <% end %>
         </td>
         <td><%= asset.user_id %></td>
         <td><%= asset.asset_value %></td>
+        <td>
+          <% if asset.net_worth.present? %>
+            <a href="/net_worths/<%= asset.net_worth.id %>">
+              <%= asset.net_worth.asset_total_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/assets/<%= asset.id %>" class="btn btn-primary">Show</a>
           <a href="/assets/<%= asset.id %>/edit" class="btn btn-warning">Edit</a>
