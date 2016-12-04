@@ -1,5 +1,7 @@
 ActiveAdmin.register HistoricalNetWorth do
 
+ permit_params :user_id, :date, :asset_total_id, :liabilities_total_id, :net_worth_total_id
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
