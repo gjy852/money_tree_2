@@ -1,6 +1,6 @@
 class HistoricalNetWorthsController < ApplicationController
   def index
-    @historical_net_worths = HistoricalNetWorth.all
+    @historical_net_worths = HistoricalNetWorth.page(params[:page]).per(10)
 
     render("historical_net_worths/index.html.erb")
   end
