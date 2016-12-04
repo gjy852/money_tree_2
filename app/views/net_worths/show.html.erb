@@ -35,3 +35,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Net worth has many historical_net_worths -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Historical_net_worths
+      </li>
+
+      <% @net_worth.historical_net_worths.each do |historical_net_worth| %>
+        <li class="list-group-item">
+          <a href="/historical_net_worths/<%= historical_net_worth.id %>">
+            <%= historical_net_worth.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/historical_net_worths/<%= historical_net_worth.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/historical_net_worths/<%= historical_net_worth.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_historical_net_worth/<%= historical_net_worth.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
