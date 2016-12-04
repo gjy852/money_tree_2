@@ -18,7 +18,7 @@
       <% @liabilities.each do |liability| %>
       <tr>
         <td><%= liability.liabilities_type.credit_cards %></td>
-        <td><%= liability.user_id %></td>
+        <td><%= liability.user.age %></td>
         <td><%= liability.liabilities_value %></td>
         <td>
           <a href="/liabilities/<%= liability.id %>" class="btn btn-primary">Show</a>
