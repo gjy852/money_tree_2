@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Historical_net_worth resource:
+  # CREATE
+  get "/historical_net_worths/new", :controller => "historical_net_worths", :action => "new"
+  post "/create_historical_net_worth", :controller => "historical_net_worths", :action => "create"
+
+  # READ
+  get "/historical_net_worths", :controller => "historical_net_worths", :action => "index"
+  get "/historical_net_worths/:id", :controller => "historical_net_worths", :action => "show"
+
+  # UPDATE
+  get "/historical_net_worths/:id/edit", :controller => "historical_net_worths", :action => "edit"
+  post "/update_historical_net_worth/:id", :controller => "historical_net_worths", :action => "update"
+
+  # DELETE
+  get "/delete_historical_net_worth/:id", :controller => "historical_net_worths", :action => "destroy"
+  #------------------------------
+
   # Routes for the User resource:
   # CREATE
   get "/users/new", :controller => "users", :action => "new"
