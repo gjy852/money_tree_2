@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
   ActiveAdmin.routes(self)
-  root :to => "asset_types#index"
+  root :to => "net_worths#index"
   # Routes for the Historical_net_worth resource:
   # CREATE
   get "/historical_net_worths/new", :controller => "historical_net_worths", :action => "new"
