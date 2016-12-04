@@ -1,6 +1,8 @@
 class NetWorth < ApplicationRecord
   # Direct associations
 
+  belongs_to :user
+
   belongs_to :liabilities_total,
              :class_name => "Liability"
 
