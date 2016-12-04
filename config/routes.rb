@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root :to => "asset_types#index"
   # Routes for the Historical_net_worth resource:
   # CREATE
