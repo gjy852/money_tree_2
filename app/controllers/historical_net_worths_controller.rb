@@ -1,6 +1,7 @@
 class HistoricalNetWorthsController < ApplicationController
   def index
-    @historical_net_worths = HistoricalNetWorth.page(params[:page]).per(10)
+    @q = HistoricalNetWorth.ransack(params[:q])
+    @historical_net_worths = @q.result(:distinct => true).includes(:net_worth_total, :user).page(params[:page]).per(10)
 
     render("historical_net_worths/index.html.erb")
   end
