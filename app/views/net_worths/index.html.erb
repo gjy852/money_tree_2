@@ -20,7 +20,7 @@
       <% @net_worths.each do |net_worth| %>
       <tr>
         <td><%= net_worth.asset_total.asset_type_id %></td>
-        <td><%= net_worth.liabilities_total_id %></td>
+        <td><%= net_worth.liabilities_total.liabilities_type_id %></td>
         <td><%= net_worth.net_worth_total_id %></td>
         <td><%= net_worth.user_id %></td>
         <td><%= net_worth.date %></td>
