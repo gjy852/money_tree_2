@@ -9,6 +9,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :historical_net_worths,
+             :through => :net_worths,
+             :source => :historical_net_worths
+
   # Validations
 
 end

@@ -6,6 +6,10 @@ class HistoricalNetWorth < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :user,
+             :through => :net_worth_total,
+             :source => :user
+
   # Validations
 
 end
