@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @liability = Liability.new
+    @net_worth = NetWorth.new
     @user = User.find(params[:id])
 
     render("users/show.html.erb")

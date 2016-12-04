@@ -6,6 +6,7 @@ class NetWorthsController < ApplicationController
   end
 
   def show
+    @historical_net_worth = HistoricalNetWorth.new
     @net_worth = NetWorth.find(params[:id])
 
     render("net_worths/show.html.erb")
