@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204195500) do
+ActiveRecord::Schema.define(version: 20161204213126) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -27,17 +27,9 @@ ActiveRecord::Schema.define(version: 20161204195500) do
   end
 
   create_table "asset_types", force: :cascade do |t|
-    t.integer  "checking"
-    t.integer  "savings"
-    t.integer  "other_cash_equivalents"
-    t.integer  "brokerage"
-    t.integer  "retirement"
-    t.integer  "business_ownership"
-    t.integer  "real_estate"
-    t.integer  "automobiles"
-    t.integer  "other_use_assets"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
   end
 
   create_table "assets", force: :cascade do |t|

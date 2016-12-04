@@ -21,15 +21,7 @@ class AssetTypesController < ApplicationController
   def create
     @asset_type = AssetType.new
 
-    @asset_type.checking = params[:checking]
-    @asset_type.savings = params[:savings]
-    @asset_type.other_cash_equivalents = params[:other_cash_equivalents]
-    @asset_type.brokerage = params[:brokerage]
-    @asset_type.retirement = params[:retirement]
-    @asset_type.business_ownership = params[:business_ownership]
-    @asset_type.real_estate = params[:real_estate]
-    @asset_type.automobiles = params[:automobiles]
-    @asset_type.other_use_assets = params[:other_use_assets]
+    @asset_type.asset_name = params[:asset_name]
 
     save_status = @asset_type.save
 
@@ -56,15 +48,7 @@ class AssetTypesController < ApplicationController
   def update
     @asset_type = AssetType.find(params[:id])
 
-    @asset_type.checking = params[:checking]
-    @asset_type.savings = params[:savings]
-    @asset_type.other_cash_equivalents = params[:other_cash_equivalents]
-    @asset_type.brokerage = params[:brokerage]
-    @asset_type.retirement = params[:retirement]
-    @asset_type.business_ownership = params[:business_ownership]
-    @asset_type.real_estate = params[:real_estate]
-    @asset_type.automobiles = params[:automobiles]
-    @asset_type.other_use_assets = params[:other_use_assets]
+    @asset_type.asset_name = params[:asset_name]
 
     save_status = @asset_type.save
 

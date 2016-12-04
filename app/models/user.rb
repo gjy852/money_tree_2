@@ -18,5 +18,6 @@ class User < ApplicationRecord
              :source => :historical_net_worths
 
   # Validations
+  # validates :username, :presence => true, :uniqueness => true
 
 end

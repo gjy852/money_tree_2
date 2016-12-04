@@ -18,86 +18,15 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for checking -->
-      <div class="form-group">
-        <label for="checking" class="control-label">
-          Checking
-        </label>
+      <!-- Label and input for adding a new asset type -->
+          <div class="form-group">
+            <label for="asset_name" class="control-label">
+              asset_name
+            </label>
+            <input type="text" id="asset_name" name="asset_name" placeholder="asset_name" class="form-control" value="<%= @asset_type.asset_name %>">
+              </div>
 
-        <input type="text" id="checking" name="checking" placeholder="Checking" class="form-control" value="<%= @asset_type.checking %>">
-      </div>
 
-      <!-- Label and input for savings -->
-      <div class="form-group">
-        <label for="savings" class="control-label">
-          Savings
-        </label>
-
-        <input type="text" id="savings" name="savings" placeholder="Savings" class="form-control" value="<%= @asset_type.savings %>">
-      </div>
-
-      <!-- Label and input for other_cash_equivalents -->
-      <div class="form-group">
-        <label for="other_cash_equivalents" class="control-label">
-          Other cash equivalents
-        </label>
-
-        <input type="text" id="other_cash_equivalents" name="other_cash_equivalents" placeholder="Other cash equivalents" class="form-control" value="<%= @asset_type.other_cash_equivalents %>">
-      </div>
-
-      <!-- Label and input for brokerage -->
-      <div class="form-group">
-        <label for="brokerage" class="control-label">
-          Brokerage
-        </label>
-
-        <input type="text" id="brokerage" name="brokerage" placeholder="Brokerage" class="form-control" value="<%= @asset_type.brokerage %>">
-      </div>
-
-      <!-- Label and input for retirement -->
-      <div class="form-group">
-        <label for="retirement" class="control-label">
-          Retirement
-        </label>
-
-        <input type="text" id="retirement" name="retirement" placeholder="Retirement" class="form-control" value="<%= @asset_type.retirement %>">
-      </div>
-
-      <!-- Label and input for business_ownership -->
-      <div class="form-group">
-        <label for="business_ownership" class="control-label">
-          Business ownership
-        </label>
-
-        <input type="text" id="business_ownership" name="business_ownership" placeholder="Business ownership" class="form-control" value="<%= @asset_type.business_ownership %>">
-      </div>
-
-      <!-- Label and input for real_estate -->
-      <div class="form-group">
-        <label for="real_estate" class="control-label">
-          Real estate
-        </label>
-
-        <input type="text" id="real_estate" name="real_estate" placeholder="Real estate" class="form-control" value="<%= @asset_type.real_estate %>">
-      </div>
-
-      <!-- Label and input for automobiles -->
-      <div class="form-group">
-        <label for="automobiles" class="control-label">
-          Automobiles
-        </label>
-
-        <input type="text" id="automobiles" name="automobiles" placeholder="Automobiles" class="form-control" value="<%= @asset_type.automobiles %>">
-      </div>
-
-      <!-- Label and input for other_use_assets -->
-      <div class="form-group">
-        <label for="other_use_assets" class="control-label">
-          Other use assets
-        </label>
-
-        <input type="text" id="other_use_assets" name="other_use_assets" placeholder="Other use assets" class="form-control" value="<%= @asset_type.other_use_assets %>">
-      </div>
 
       <button class="btn btn-success">
         Create Asset Type

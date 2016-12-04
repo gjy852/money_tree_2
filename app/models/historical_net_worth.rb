@@ -11,5 +11,7 @@ class HistoricalNetWorth < ApplicationRecord
              :source => :user
 
   # Validations
+  #user_id: presence
+  validates :user_id, :presence => true
 
 end

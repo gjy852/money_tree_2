@@ -10,5 +10,9 @@ class Asset < ApplicationRecord
   # Indirect associations
 
   # Validations
+#user_id: presence
+validates :user_id, :presence => true
+#asset_type
+validates :asset_type, :presence=> true
 
 end

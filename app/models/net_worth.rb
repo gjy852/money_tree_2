@@ -16,5 +16,7 @@ class NetWorth < ApplicationRecord
   # Indirect associations
 
   # Validations
+  #user_id: presence
+  validates :user_id, :presence => true
 
 end
