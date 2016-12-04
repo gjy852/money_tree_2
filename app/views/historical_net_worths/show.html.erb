@@ -18,7 +18,13 @@
       <dd><%= @historical_net_worth.liabilities_total_id %></dd>
 
       <dt>Net worth total</dt>
-      <dd><%= @historical_net_worth.net_worth_total_id %></dd>
+      <dd>
+        <% if @historical_net_worth.net_worth_total.present? %>
+          <a href="/net_worths/<%= @historical_net_worth.net_worth_total_id %>">
+            <%= @historical_net_worth.net_worth_total.asset_total_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

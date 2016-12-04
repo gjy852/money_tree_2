@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Asset type</dt>
-      <dd><%= @asset.asset_type_id %></dd>
+      <dd>
+        <% if @asset.asset_type.present? %>
+          <a href="/asset_types/<%= @asset.asset_type_id %>">
+            <%= @asset.asset_type.checking %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>User</dt>
       <dd><%= @asset.user_id %></dd>

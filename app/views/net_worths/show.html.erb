@@ -6,16 +6,34 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Asset total</dt>
-      <dd><%= @net_worth.asset_total_id %></dd>
+      <dd>
+        <% if @net_worth.asset_total.present? %>
+          <a href="/assets/<%= @net_worth.asset_total_id %>">
+            <%= @net_worth.asset_total.asset_type_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Liabilities total</dt>
-      <dd><%= @net_worth.liabilities_total_id %></dd>
+      <dd>
+        <% if @net_worth.liabilities_total.present? %>
+          <a href="/liabilities/<%= @net_worth.liabilities_total_id %>">
+            <%= @net_worth.liabilities_total.liabilities_type_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Net worth total</dt>
       <dd><%= @net_worth.net_worth_total_id %></dd>
 
       <dt>User</dt>
-      <dd><%= @net_worth.user_id %></dd>
+      <dd>
+        <% if @net_worth.user.present? %>
+          <a href="/users/<%= @net_worth.user_id %>">
+            <%= @net_worth.user.age %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Date</dt>
       <dd><%= @net_worth.date %></dd>

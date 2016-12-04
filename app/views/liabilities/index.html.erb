@@ -17,8 +17,20 @@
 
       <% @liabilities.each do |liability| %>
       <tr>
-        <td><%= liability.liabilities_type.credit_cards %></td>
-        <td><%= liability.user.age %></td>
+        <td>
+          <% if liability.liabilities_type.present? %>
+            <a href="/liability_types/<%= liability.liabilities_type.id %>">
+              <%= liability.liabilities_type.credit_cards %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if liability.user.present? %>
+            <a href="/users/<%= liability.user.id %>">
+              <%= liability.user.age %>
+            </a>
+          <% end %>
+        </td>
         <td><%= liability.liabilities_value %></td>
         <td>
           <a href="/liabilities/<%= liability.id %>" class="btn btn-primary">Show</a>

@@ -23,7 +23,13 @@
         <td><%= historical_net_worth.date %></td>
         <td><%= historical_net_worth.asset_total_id %></td>
         <td><%= historical_net_worth.liabilities_total_id %></td>
-        <td><%= historical_net_worth.net_worth_total.asset_total_id %></td>
+        <td>
+          <% if historical_net_worth.net_worth_total.present? %>
+            <a href="/net_worths/<%= historical_net_worth.net_worth_total.id %>">
+              <%= historical_net_worth.net_worth_total.asset_total_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/historical_net_worths/<%= historical_net_worth.id %>" class="btn btn-primary">Show</a>
           <a href="/historical_net_worths/<%= historical_net_worth.id %>/edit" class="btn btn-warning">Edit</a>

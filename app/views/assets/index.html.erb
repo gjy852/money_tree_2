@@ -17,7 +17,13 @@
 
       <% @assets.each do |asset| %>
       <tr>
-        <td><%= asset.asset_type.checking %></td>
+        <td>
+          <% if asset.asset_type.present? %>
+            <a href="/asset_types/<%= asset.asset_type.id %>">
+              <%= asset.asset_type.checking %>
+            </a>
+          <% end %>
+        </td>
         <td><%= asset.user_id %></td>
         <td><%= asset.asset_value %></td>
         <td>
