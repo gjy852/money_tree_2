@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @liability_type.errors.any? %>
+  <% @liability_type.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Liability Type #<%= @liability_type.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_liability_type/<%= @liability_type.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for credit_cards -->
+      <div class="form-group">
+        <label for="credit_cards" class="control-label">
+          Credit cards
+        </label>
+
+        <input type="text" id="credit_cards" name="credit_cards" placeholder="Credit cards" class="form-control" value="<%= @liability_type.credit_cards %>">
+      </div>
+
+      <!-- Label and input for other_current_liabilities -->
+      <div class="form-group">
+        <label for="other_current_liabilities" class="control-label">
+          Other current liabilities
+        </label>
+
+        <input type="text" id="other_current_liabilities" name="other_current_liabilities" placeholder="Other current liabilities" class="form-control" value="<%= @liability_type.other_current_liabilities %>">
+      </div>
+
+      <!-- Label and input for mortgages -->
+      <div class="form-group">
+        <label for="mortgages" class="control-label">
+          Mortgages
+        </label>
+
+        <input type="text" id="mortgages" name="mortgages" placeholder="Mortgages" class="form-control" value="<%= @liability_type.mortgages %>">
+      </div>
+
+      <!-- Label and input for student_loans -->
+      <div class="form-group">
+        <label for="student_loans" class="control-label">
+          Student loans
+        </label>
+
+        <input type="text" id="student_loans" name="student_loans" placeholder="Student loans" class="form-control" value="<%= @liability_type.student_loans %>">
+      </div>
+
+      <!-- Label and input for automobile_loans -->
+      <div class="form-group">
+        <label for="automobile_loans" class="control-label">
+          Automobile loans
+        </label>
+
+        <input type="text" id="automobile_loans" name="automobile_loans" placeholder="Automobile loans" class="form-control" value="<%= @liability_type.automobile_loans %>">
+      </div>
+
+      <!-- Label and input for other_long_term_liabilities -->
+      <div class="form-group">
+        <label for="other_long_term_liabilities" class="control-label">
+          Other long term liabilities
+        </label>
+
+        <input type="text" id="other_long_term_liabilities" name="other_long_term_liabilities" placeholder="Other long term liabilities" class="form-control" value="<%= @liability_type.other_long_term_liabilities %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Liability Type
+      </button>
+      or
+      <a href="/liability_types/<%= @liability_type.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
