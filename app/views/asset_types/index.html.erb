@@ -9,29 +9,13 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Checking</th>
-        <th>Savings</th>
-        <th>Other cash equivalents</th>
-        <th>Brokerage</th>
-        <th>Retirement</th>
-        <th>Business ownership</th>
-        <th>Real estate</th>
-        <th>Automobiles</th>
-        <th>Other use assets</th>
+        <th>Name</th>
         <th>Actions</th>
       </tr>
 
       <% @asset_types.each do |asset_type| %>
       <tr>
-        <td><%= asset_type.checking %></td>
-        <td><%= asset_type.savings %></td>
-        <td><%= asset_type.other_cash_equivalents %></td>
-        <td><%= asset_type.brokerage %></td>
-        <td><%= asset_type.retirement %></td>
-        <td><%= asset_type.business_ownership %></td>
-        <td><%= asset_type.real_estate %></td>
-        <td><%= asset_type.automobiles %></td>
-        <td><%= asset_type.other_use_assets %></td>
+        <td><%= asset_type.name %></td>
         <td>
           <a href="/asset_types/<%= asset_type.id %>" class="btn btn-primary">Show</a>
           <a href="/asset_types/<%= asset_type.id %>/edit" class="btn btn-warning">Edit</a>

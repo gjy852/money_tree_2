@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
   def index
     @q = User.ransack(params[:q])
-    @users = @q.result(:distinct => true).includes(:net_worths, :liabilities, :historical_net_worths).page(params[:page]).per(10)
+    @users = @q.result(:distinct => true).includes(:net_worths).page(params[:page]).per(10)
 
     render("users/index.html.erb")
   end
 
   def show
-    @liability = Liability.new
     @net_worth = NetWorth.new
     @user = User.find(params[:id])
 

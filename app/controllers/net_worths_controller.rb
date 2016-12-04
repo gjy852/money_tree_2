@@ -1,13 +1,14 @@
 class NetWorthsController < ApplicationController
   def index
     @q = NetWorth.ransack(params[:q])
-    @net_worths = @q.result(:distinct => true).includes(:asset_total, :historical_net_worths, :liabilities_total, :user).page(params[:page]).per(10)
+    @net_worths = @q.result(:distinct => true).includes(:assets, :liabilities, :user).page(params[:page]).per(10)
 
     render("net_worths/index.html.erb")
   end
 
   def show
-    @historical_net_worth = HistoricalNetWorth.new
+    @liability = Liability.new
+    @asset = Asset.new
     @net_worth = NetWorth.find(params[:id])
 
     render("net_worths/show.html.erb")
@@ -22,11 +23,10 @@ class NetWorthsController < ApplicationController
   def create
     @net_worth = NetWorth.new
 
-    @net_worth.asset_total_id = params[:asset_total_id]
-    @net_worth.liabilities_total_id = params[:liabilities_total_id]
+    @net_worth.liabilities_id = params[:liabilities_id]
     @net_worth.net_worth_total_id = params[:net_worth_total_id]
+    @net_worth.asset_total_id = params[:asset_total_id]
     @net_worth.user_id = params[:user_id]
-    @net_worth.date = params[:date]
 
     save_status = @net_worth.save
 
@@ -53,11 +53,10 @@ class NetWorthsController < ApplicationController
   def update
     @net_worth = NetWorth.find(params[:id])
 
-    @net_worth.asset_total_id = params[:asset_total_id]
-    @net_worth.liabilities_total_id = params[:liabilities_total_id]
+    @net_worth.liabilities_id = params[:liabilities_id]
     @net_worth.net_worth_total_id = params[:net_worth_total_id]
+    @net_worth.asset_total_id = params[:asset_total_id]
     @net_worth.user_id = params[:user_id]
-    @net_worth.date = params[:date]
 
     save_status = @net_worth.save
 

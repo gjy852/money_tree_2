@@ -21,6 +21,18 @@
 </div>
 
 <div class="form-group">
+  <%= f.label :user_id, "User" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :user_id_gteq, :class => "form-control", :placeholder => "User greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :user_id_lteq, :class => "form-control", :placeholder => "User less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
           <%= f.label :created_at, "Created at" %>
           <div class="row">
             <div class='col-md-6 mb-1'>
@@ -61,28 +73,56 @@
       </script>
 
         <div class="form-group">
-  <%= f.label :credit_cards, "LiabilityType Credit cards" %>
+  <%= f.label :asset_total_id, "NetWorth Asset total" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
-      <%= f.text_field :liabilities_type_credit_cards_gteq, :class => "form-control", :placeholder => "LiabilityType Credit cards greater than or equal to" %>
+      <%= f.text_field :net_worth_asset_total_id_gteq, :class => "form-control", :placeholder => "NetWorth Asset total greater than or equal to" %>
     </div>
     <div class='col-md-6'>
-      <%= f.text_field :liabilities_type_credit_cards_lteq, :class => "form-control", :placeholder => "LiabilityType Credit cards less than or equal to" %>
+      <%= f.text_field :net_worth_asset_total_id_lteq, :class => "form-control", :placeholder => "NetWorth Asset total less than or equal to" %>
     </div>
   </div>
 </div>
 
 <div class="form-group">
-  <%= f.label :age, "User Age" %>
-  <div class="row">
-    <div class='col-md-6 mb-1'>
-      <%= f.text_field :user_age_gteq, :class => "form-control", :placeholder => "User Age greater than or equal to" %>
-    </div>
-    <div class='col-md-6'>
-      <%= f.text_field :user_age_lteq, :class => "form-control", :placeholder => "User Age less than or equal to" %>
-    </div>
-  </div>
-</div>
+          <%= f.label :created_at, "LiabilityType Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='liabilities_typegteqcreated_atPicker'>
+                  <%= f.text_field :liabilities_type_created_at_gteq, :class => "form-control", :placeholder => "LiabilityType Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='liabilities_typelteqcreated_atPicker'>
+                  <%= f.text_field :liabilities_type_created_at_lteq, :class => "form-control", :placeholder => "LiabilityType Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#liabilities_typegteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#liabilities_typelteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#liabilities_typegteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#liabilities_typelteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#liabilities_typelteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#liabilities_typegteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
@@ -101,6 +141,7 @@
         <th>Liabilities type</th>
         <th>User</th>
         <th>Liabilities value</th>
+        <th>Net worth</th>
         <th>Actions</th>
       </tr>
 
@@ -109,18 +150,19 @@
         <td>
           <% if liability.liabilities_type.present? %>
             <a href="/liability_types/<%= liability.liabilities_type.id %>">
-              <%= liability.liabilities_type.credit_cards %>
+              <%= liability.liabilities_type.created_at %>
             </a>
           <% end %>
         </td>
-        <td>
-          <% if liability.user.present? %>
-            <a href="/users/<%= liability.user.id %>">
-              <%= liability.user.age %>
-            </a>
-          <% end %>
-        </td>
+        <td><%= liability.user_id %></td>
         <td><%= liability.liabilities_value %></td>
+        <td>
+          <% if liability.net_worth.present? %>
+            <a href="/net_worths/<%= liability.net_worth.id %>">
+              <%= liability.net_worth.asset_total_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/liabilities/<%= liability.id %>" class="btn btn-primary">Show</a>
           <a href="/liabilities/<%= liability.id %>/edit" class="btn btn-warning">Edit</a>

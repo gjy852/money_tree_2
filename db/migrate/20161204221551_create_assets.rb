@@ -4,6 +4,7 @@ class CreateAssets < ActiveRecord::Migration
       t.integer :asset_type_id
       t.integer :user_id
       t.integer :asset_value
+      t.integer :net_worth_id
 
       t.timestamps
 

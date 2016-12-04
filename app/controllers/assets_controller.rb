@@ -24,6 +24,7 @@ class AssetsController < ApplicationController
     @asset.asset_type_id = params[:asset_type_id]
     @asset.user_id = params[:user_id]
     @asset.asset_value = params[:asset_value]
+    @asset.net_worth_id = params[:net_worth_id]
 
     save_status = @asset.save
 
@@ -53,6 +54,7 @@ class AssetsController < ApplicationController
     @asset.asset_type_id = params[:asset_type_id]
     @asset.user_id = params[:user_id]
     @asset.asset_value = params[:asset_value]
+    @asset.net_worth_id = params[:net_worth_id]
 
     save_status = @asset.save
 

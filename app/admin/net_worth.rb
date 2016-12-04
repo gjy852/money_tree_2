@@ -1,6 +1,6 @@
 ActiveAdmin.register NetWorth do
 
- permit_params :asset_total_id, :liabilities_total_id, :net_worth_total_id, :user_id, :date
+ permit_params :liabilities_id, :net_worth_total_id, :asset_total_id, :user_id
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

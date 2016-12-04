@@ -1,6 +1,6 @@
 ActiveAdmin.register AssetType do
 
- permit_params :checking, :savings, :other_cash_equivalents, :brokerage, :retirement, :business_ownership, :real_estate, :automobiles, :other_use_assets
+ permit_params :name
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
